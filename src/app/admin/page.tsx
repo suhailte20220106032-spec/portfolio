@@ -10,12 +10,19 @@ export default function AdminDashboard() {
   const [posts, setPosts] = useState<Post[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
 
   useEffect(() => {
     const checkAuth = async () => {
       try {
-        const response = await fetch('/api/admin/posts');
+        // Check if user has valid auth cookie by testing a protected endpoint
+        const response = await fetch('/api/admin/posts', {
+          method: 'GET',
+          credentials: 'include',
+        });
+        
         if (response.status === 401) {
+          // Not authenticated, redirect to login
           router.push('/admin/login');
           return;
         }
@@ -24,6 +31,7 @@ export default function AdminDashboard() {
           throw new Error('Failed to fetch posts');
         }
 
+        setIsAuthenticated(true);
         const data = await response.json();
         setPosts(data.posts);
       } catch (err) {
@@ -49,7 +57,8 @@ export default function AdminDashboard() {
     router.push('/admin/edit');
   };
 
-  if (loading) {
+  // Show loading state
+  if (loading || !isAuthenticated) {
     return (
       <div className="d-flex justify-content-center align-items-center min-vh-100">
         <div className="spinner-border" role="status">
@@ -57,6 +66,11 @@ export default function AdminDashboard() {
         </div>
       </div>
     );
+  }
+
+  // Prevent rendering if not authenticated
+  if (!isAuthenticated) {
+    return null;
   }
 
   return (

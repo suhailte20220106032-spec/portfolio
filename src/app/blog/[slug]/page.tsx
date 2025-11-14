@@ -1,56 +1,78 @@
-'use client';
-
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import Link from 'next/link';
-import { useParams } from 'next/navigation';
 import { Post } from '@/types/post';
 import Navbar from '@/app/components/Navbar';
 
-export default function BlogPostPage() {
-  const params = useParams();
-  const slug = params.slug as string;
+interface PageProps {
+  params: {
+    slug: string;
+  };
+}
 
-  const [post, setPost] = useState<Post | null>(null);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState('');
+async function getPost(slug: string): Promise<Post | null> {
+  try {
+    const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'http://localhost:3000';
+    const response = await fetch(`${baseUrl}/api/admin/posts/${slug}`, {
+      next: { revalidate: 60 },
+    });
 
-  useEffect(() => {
-    const fetchPost = async () => {
-      try {
-        const response = await fetch(`/api/admin/posts/${slug}`);
-        if (!response.ok) {
-          throw new Error('Post not found');
-        }
+    if (!response.ok) {
+      return null;
+    }
 
-        const data = await response.json();
-        setPost(data.post);
-      } catch (err) {
-        setError(err instanceof Error ? err.message : 'Failed to load post');
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    fetchPost();
-  }, [slug]);
-
-  if (loading) {
-    return (
-      <div className="d-flex justify-content-center align-items-center min-vh-100">
-        <div className="spinner-border" role="status">
-          <span className="visually-hidden">Loading...</span>
-        </div>
-      </div>
-    );
+    const data = await response.json();
+    return data.post || null;
+  } catch (error) {
+    console.error('Error fetching post:', error);
+    return null;
   }
+}
 
-  if (error || !post) {
+export async function generateMetadata({ params }: PageProps) {
+  const post = await getPost(params.slug);
+  return {
+    title: post?.title || 'Post Not Found',
+    description: post?.excerpt || 'Read this blog post',
+  };
+}
+
+function renderMarkdown(markdown: string) {
+  let html = markdown
+    // Headers
+    .replace(/^### (.*?)$/gm, '<h3 style="margin-top: 1.5rem; margin-bottom: 0.5rem;">$1</h3>')
+    .replace(/^## (.*?)$/gm, '<h2 style="margin-top: 1.5rem; margin-bottom: 0.5rem;">$1</h2>')
+    .replace(/^# (.*?)$/gm, '<h1 style="margin-top: 1.5rem; margin-bottom: 0.5rem;">$1</h1>')
+    // Bold
+    .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
+    .replace(/__(.+?)__/g, '<strong>$1</strong>')
+    // Italic
+    .replace(/\*(.*?)\*/g, '<em>$1</em>')
+    .replace(/_(.+?)_/g, '<em>$1</em>')
+    // Code blocks - split across lines to avoid s flag
+    .replace(/```[\s\S]*?```/g, (match) => {
+      const code = match.slice(3, -3);
+      return `<pre style="background: #f5f5f5; padding: 1rem; overflow-x: auto;"><code>${code}</code></pre>`;
+    })
+    // Inline code
+    .replace(/`([^`]+)`/g, '<code style="background: #f5f5f5; padding: 0.2rem 0.4rem; border-radius: 3px;">$1</code>')
+    // Line breaks
+    .replace(/\n\n/g, '</p><p>')
+    .replace(/\n/g, '<br />');
+
+  return `<p>${html}</p>`;
+}
+
+export default async function BlogPostPage({ params }: PageProps) {
+  const slug = params.slug;
+  const post = await getPost(slug);
+
+  if (!post) {
     return (
       <div>
         <Navbar />
         <div className="container mt-5 text-center">
           <h2>Post Not Found</h2>
-          <p className="text-muted">{error || 'The blog post you are looking for does not exist.'}</p>
+          <p className="text-muted">The blog post you are looking for does not exist.</p>
           <Link href="/blog" className="btn btn-primary mt-3">
             Back to Blog
           </Link>
@@ -58,26 +80,6 @@ export default function BlogPostPage() {
       </div>
     );
   }
-
-  // Simple markdown to HTML converter (basic)
-  const renderMarkdown = (markdown: string) => {
-    let html = markdown
-      // Headers
-      .replace(/^### (.*?)$/gm, '<h3 className="mt-4 mb-2">$1</h3>')
-      .replace(/^## (.*?)$/gm, '<h2 className="mt-4 mb-2">$1</h2>')
-      .replace(/^# (.*?)$/gm, '<h1 className="mt-4 mb-2">$1</h1>')
-      // Bold
-      .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
-      .replace(/__(.+?)__/g, '<strong>$1</strong>')
-      // Italic
-      .replace(/\*(.*?)\*/g, '<em>$1</em>')
-      .replace(/_(.+?)_/g, '<em>$1</em>')
-      // Line breaks
-      .replace(/\n\n/g, '</p><p>')
-      .replace(/\n/g, '<br />');
-
-    return `<p>${html}</p>`;
-  };
 
   return (
     <div>
