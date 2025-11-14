@@ -1,9 +1,34 @@
+'use client';
 
-import React from 'react';
-import Image from 'next/image';
+import React, { useState, useEffect } from 'react';
 import Navbar from '../components/Navbar';
+import BlogCard from '../components/BlogCard';
+import { Post } from '@/types/post';
 
 const Blog: React.FC = () => {
+  const [posts, setPosts] = useState<Post[]>([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchPosts = async () => {
+      try {
+        const response = await fetch('/api/admin/posts');
+        if (response.ok) {
+          const data = await response.json();
+          // Filter to only published posts for public view
+          const publishedPosts = data.posts.filter((post: Post) => post.published);
+          setPosts(publishedPosts);
+        }
+      } catch (error) {
+        console.error('Failed to fetch posts:', error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchPosts();
+  }, []);
+
   return (
     <div>
       <div id="home" className="hero-area position-relative bg-half-120" style={{ background: 'url(/img/bg-hero.jpg) center center' }}>
@@ -33,104 +58,23 @@ const Blog: React.FC = () => {
           <article>
             <section className="section">
               <div className="container">
-                <div className="row">
-                  <div className="col-lg-4 col-md-6 mb-4 pb-2">
-                    <div className="pad-right-left m-2">
-                      <div className="blog-post rounded customer-testi">
-                        <div className="content pt-4 pb-4 p-3">
-                          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Omnis odit expedita autem laborum deleniti eum! Iste, molestias laudantium. Autem ipsam quasi beatae nisi, labore eius eaque animi dignissimos recusandae laborum?
-                          <div className="post-meta d-flex justify-content-between mt-3">
-                            <a href="#" className="text-muted readmore">Read more <i className="mdi mdi-chevron-right"></i></a>
-                          </div>
-                        </div>
-                      </div>
+                {loading ? (
+                  <div className="text-center py-5">
+                    <div className="spinner-border" role="status">
+                      <span className="visually-hidden">Loading...</span>
                     </div>
                   </div>
-                  <div className="col-lg-4 col-md-6 mb-4 pb-2">
-                    <div className="pad-right-left m-2">
-                      <div className="blog-post rounded customer-testi">
-                        <div className="content pt-4 pb-4 p-3">
-                          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Omnis odit expedita autem laborum deleniti eum! Iste, molestias laudantium. Autem ipsam quasi beatae nisi, labore eius eaque animi dignissimos recusandae laborum?
-                          <div className="post-meta d-flex justify-content-between mt-3">
-                            <a href="#" className="text-muted readmore">Read more <i className="mdi mdi-chevron-right"></i></a>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
+                ) : posts.length === 0 ? (
+                  <div className="alert alert-info text-center" role="alert">
+                    No blog posts yet. Check back soon!
                   </div>
-                  <div className="col-lg-4 col-md-6 mb-4 pb-2">
-                    <div className="pad-right-left m-2">
-                      <div className="blog-post rounded customer-testi">
-                        <div className="content pt-4 pb-4 p-3">
-                          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Omnis odit expedita autem laborum deleniti eum! Iste, molestias laudantium. Autem ipsam quasi beatae nisi, labore eius eaque animi dignissimos recusandae laborum?
-                          <div className="post-meta d-flex justify-content-between mt-3">
-                            <a href="#" className="text-muted readmore">Read more <i className="mdi mdi-chevron-right"></i></a>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
+                ) : (
+                  <div className="row">
+                    {posts.map((post) => (
+                      <BlogCard key={post.slug} post={post} link={`/blog/${post.slug}`} />
+                    ))}
                   </div>
-                  <div className="col-lg-4 col-md-6 mb-4 pb-2">
-                    <div className="pad-right-left m-2">
-                      <div className="blog-post rounded customer-testi">
-                        <div className="content pt-4 pb-4 p-3">
-                          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Omnis odit expedita autem laborum deleniti eum! Iste, molestias laudantium. Autem ipsam quasi beatae nisi, labore eius eaque animi dignissimos recusandae laborum?
-                          <div className="post-meta d-flex justify-content-between mt-3">
-                            <a href="#" className="text-muted readmore">Read more <i className="mdi mdi-chevron-right"></i></a>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="col-lg-4 col-md-6 mb-4 pb-2">
-                    <div className="pad-right-left m-2">
-                      <div className="blog-post rounded customer-testi">
-                        <div className="content pt-4 pb-4 p-3">
-                          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Omnis odit expedita autem laborum deleniti eum! Iste, molestias laudantium. Autem ipsam quasi beatae nisi, labore eius eaque animi dignissimos recusandae laborum?
-                          <div className="post-meta d-flex justify-content-between mt-3">
-                            <a href="#" className="text-muted readmore">Read more <i className="mdi mdi-chevron-right"></i></a>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="col-lg-4 col-md-6 mb-4 pb-2">
-                    <div className="pad-right-left m-2">
-                      <div className="blog-post rounded customer-testi">
-                        <div className="content pt-4 pb-4 p-3">
-                          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Omnis odit expedita autem laborum deleniti eum! Iste, molestias laudantium. Autem ipsam quasi beatae nisi, labore eius eaque animi dignissimos recusandae laborum?
-                          <div className="post-meta d-flex justify-content-between mt-3">
-                            <a href="#" className="text-muted readmore">Read more <i className="mdi mdi-chevron-right"></i></a>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="col-lg-4 col-md-6 mb-4 pb-2">
-                    <div className="pad-right-left m-2">
-                      <div className="blog-post rounded customer-testi">
-                        <div className="content pt-4 pb-4 p-3">
-                          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Omnis odit expedita autem laborum deleniti eum! Iste, molestias laudantium. Autem ipsam quasi beatae nisi, labore eius eaque animi dignissimos recusandae laborum?
-                          <div className="post-meta d-flex justify-content-between mt-3">
-                            <a href="#" className="text-muted readmore">Read more <i className="mdi mdi-chevron-right"></i></a>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="col-lg-4 col-md-6 mb-4 pb-2">
-                    <div className="pad-right-left m-2">
-                      <div className="blog-post rounded customer-testi">
-                        <div className="content pt-4 pb-4 p-3">
-                          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Omnis odit expedita autem laborum deleniti eum! Iste, molestias laudantium. Autem ipsam quasi beatae nisi, labore eius eaque animi dignissimos recusandae laborum?
-                          <div className="post-meta d-flex justify-content-between mt-3">
-                            <a href="#" className="text-muted readmore">Read more <i className="mdi mdi-chevron-right"></i></a>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+                )}
               </div>
             </section>
           </article>
