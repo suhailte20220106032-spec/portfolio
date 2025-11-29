@@ -1,7 +1,7 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Briefcase, GraduationCap } from 'lucide-react';
 
-const Timeline = () => {
+export default function TimelinePage() {
   const timelineItems = [
     {
       year: '2024',
@@ -78,6 +78,4 @@ const Timeline = () => {
       </div>
     </div>
   );
-};
-
-export default Timeline;
+}

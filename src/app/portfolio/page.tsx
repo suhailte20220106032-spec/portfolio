@@ -3,7 +3,7 @@ import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { ExternalLink, Github, Briefcase } from 'lucide-react';
 
-const Portfolio = () => {
+export default function PortfolioPage() {
   const projects = [
     {
       title: 'E-Commerce Platform',
@@ -134,6 +134,4 @@ const Portfolio = () => {
       </div>
     </div>
   );
-};
-
-export default Portfolio;
+}

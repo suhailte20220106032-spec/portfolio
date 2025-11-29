@@ -1,0 +1,219 @@
+/* components/Intro/Intro.module.css */
+.intro {
+  position: fixed;
+  z-index: 99999;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: #000000;
+  transition: 1.5s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.intro.hidden {
+  top: -100vh;
+}
+
+.logoHeader {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.logoContainer {
+  opacity: 0;
+  transform: rotateX(-90deg);
+  transform-origin: top;
+  transition: all 0.8s ease-out;
+}
+
+.logoContainer.logoActive {
+  opacity: 1;
+  transform: rotateX(0deg);
+}
+
+.logoImage {
+  width: 58.041px; /* Matches font size */
+  height: 35.795px;
+  object-fit: contain;
+}
+
+.logo {
+  position: relative;
+  display: inline-block;
+  bottom: -20px;
+  opacity: 0;
+  transition: ease-in-out 0.5s;
+}
+
+.logo.active {
+  bottom: 0;
+  opacity: 1;
+}
+
+.anime {
+  display: inline-block;
+  overflow: hidden;
+  white-space: nowrap;
+  font-family: system-ui, -apple-system, sans-serif;
+  font-weight: bold;
+}
+
+/* First Part - "AATCC" - Blue color with fade animation */
+.firstPart {
+  color: #ffffff;
+  animation: showup 7s infinite;
+  font-size: 2rem;
+}
+
+/* Second Part - "AUST Student Chapter" - Green color with typewriter reveal animation */
+.secondPart {
+  color: #008844;
+  width: 0px;
+  animation: reveal 7s infinite;
+  font-size: 2rem;
+}
+
+.slideInText {
+  animation: slidein 7s infinite;
+}
+
+/* Keyframes for the animations */
+@keyframes showup {
+  0% {
+    opacity: 0;
+  }
+  20% {
+    opacity: 1;
+  }
+  80% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes slidein {
+  0% {
+    margin-left: -800px;
+  }
+  20% {
+    margin-left: -800px;
+  }
+  35% {
+    margin-left: 0px;
+  }
+  100% {
+    margin-left: 0px;
+  }
+}
+
+@keyframes reveal {
+  0% {
+    opacity: 0;
+    width: 0px;
+  }
+  20% {
+    opacity: 1;
+    width: 0px;
+  }
+  30% {
+    width: 380px; /* Adjusted for " AUST Student Chapter" text width */
+  }
+  80% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    width: 380px;
+  }
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .logoHeader {
+    gap: 12px;
+  }
+  
+  .logoImage {
+    width: 1.8rem;
+    height: 1.8rem;
+  }
+
+  .firstPart {
+    font-size: 1.3rem;
+  }
+  
+  .secondPart {
+    font-size: 1.3rem;
+  }
+  
+  @keyframes reveal {
+    0% {
+      opacity: 0;
+      width: 0px;
+    }
+    20% {
+      opacity: 1;
+      width: 0px;
+    }
+    30% {
+      width: 240px; /* Adjusted for mobile */
+    }
+    80% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+      width: 240px;
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .logoHeader {
+    gap: 10px;
+  }
+  
+  .logoImage {
+    width: 1.5rem;
+    height: 1.5rem;
+  }
+
+  .firstPart {
+    font-size: 1rem;
+  }
+  
+  .secondPart {
+    font-size: 1rem;
+  }
+  
+  @keyframes reveal {
+    0% {
+      opacity: 0;
+      width: 0px;
+    }
+    20% {
+      opacity: 1;
+      width: 0px;
+    }
+    30% {
+      width: 200px; /* Adjusted for small mobile */
+    }
+    80% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+      width: 200px;
+    }
+  }
+}

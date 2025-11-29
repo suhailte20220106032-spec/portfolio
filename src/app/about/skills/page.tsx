@@ -1,7 +1,7 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 
-const Skills = () => {
+export default function SkillsPage() {
   const skillCategories = [
     {
       category: 'Frontend Development',
@@ -55,7 +55,7 @@ const Skills = () => {
         </CardHeader>
         <CardContent>
           <p className="text-muted-foreground">
-            I'm constantly learning and expanding my skill set. Currently exploring AI/ML integration, 
+            I&apos;m constantly learning and expanding my skill set. Currently exploring AI/ML integration, 
             Web3 technologies, and advanced system design patterns. I believe in staying curious and 
             adapting to the ever-evolving tech landscape.
           </p>
@@ -63,6 +63,4 @@ const Skills = () => {
       </Card>
     </div>
   );
-};
-
-export default Skills;
+}

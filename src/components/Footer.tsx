@@ -1,4 +1,5 @@
-import { Github, Linkedin, Twitter, Mail } from 'lucide-react';
+import { FaGithub, FaLinkedin, FaFacebook } from "react-icons/fa";
+import { MdMail } from "react-icons/md";
 
 export const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -6,47 +7,47 @@ export const Footer = () => {
   return (
     <footer className="border-t border-border/40 bg-card/50 backdrop-blur-sm">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-          <div className="text-sm text-muted-foreground">
-            © {currentYear} Portfolio. All rights reserved.
-          </div>
-          
-          <div className="flex items-center space-x-4">
+        <div className="justify-center items-center gap-4">
+          <div className="flex items-center justify-center pb-11 space-x-4">
             <a
-              href="https://github.com"
+              href="https://github.com/suhail-mujtabir"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-muted-foreground hover:text-foreground transition-colors"
+              className="flex transition duration-300 ease-in-out hover:scale-125 justify-center items-center text-muted-foreground border-[1px] h-8 w-8 dark:border-white border-black rounded-full dark:hover:bg-red-600 hover:bg-green-500"
               aria-label="GitHub"
             >
-              <Github className="h-5 w-5" />
+              <FaGithub className="h-5 w-5 " />
             </a>
             <a
-              href="https://linkedin.com"
+              href="https://www.linkedin.com/in/suhail-mujtabir/"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-muted-foreground hover:text-foreground transition-colors"
+              className="flex justify-center items-center text-muted-foreground border-[1px] h-8 w-8 dark:border-white border-black rounded-full dark:hover:bg-red-600 hover:bg-green-500 transition duration-300 ease-in-out hover:scale-125"
               aria-label="LinkedIn"
             >
-              <Linkedin className="h-5 w-5" />
+              <FaLinkedin className="h-5 w-5" />
             </a>
             <a
-              href="https://twitter.com"
+              href="https://facebook.com/suhail.mujtabir"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-muted-foreground hover:text-foreground transition-colors"
+              className="flex justify-center items-center text-muted-foreground border-[1px] h-8 w-8 dark:border-white border-black rounded-full dark:hover:bg-red-600 hover:bg-green-500 transition duration-300 ease-in-out hover:scale-125"
               aria-label="Twitter"
             >
-              <Twitter className="h-5 w-5" />
+              <FaFacebook className="h-5 w-5" />
             </a>
             <a
               href="mailto:hello@example.com"
-              className="text-muted-foreground hover:text-foreground transition-colors"
+              className="flex justify-center items-center text-muted-foreground border-[1px] h-8 w-8 dark:border-white border-black rounded-full dark:hover:bg-red-600 hover:bg-green-500 transition duration-300 ease-in-out hover:scale-125"
               aria-label="Email"
             >
-              <Mail className="h-5 w-5" />
+              <MdMail className="h-5 w-5" />
             </a>
           </div>
+          <div className="text-sm flex justify-center text-muted">
+            © {currentYear} Suhail Mujtabir. All rights reserved.
+          </div>
+          
         </div>
       </div>
     </footer>

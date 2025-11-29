@@ -3,7 +3,7 @@ import { Badge } from '@/components/ui/badge';
 import { Award, ExternalLink } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
-const Certificates = () => {
+export default function CertificatesPage() {
   const certificates = [
     {
       title: 'AWS Certified Solutions Architect',
@@ -99,6 +99,4 @@ const Certificates = () => {
       </div>
     </div>
   );
-};
-
-export default Certificates;
+}

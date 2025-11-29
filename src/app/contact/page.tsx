@@ -1,3 +1,5 @@
+'use client';
+
 import { useState } from 'react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
@@ -7,7 +9,7 @@ import { Label } from '@/components/ui/label';
 import { Mail, MapPin, Phone, Send, Github, Linkedin, Twitter } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
 
-const Contact = () => {
+export default function ContactPage() {
   const { toast } = useToast();
   const [formData, setFormData] = useState({
     name: '',
@@ -54,7 +56,7 @@ const Contact = () => {
           </div>
 
           <p className="text-lg text-muted-foreground mb-12 max-w-3xl">
-            Have a project in mind or just want to chat? I'd love to hear from you. 
+            Have a project in mind or just want to chat? I&apos;d love to hear from you. 
             Fill out the form below or reach out through any of the contact methods.
           </p>
 
@@ -64,7 +66,7 @@ const Contact = () => {
                 <CardHeader>
                   <CardTitle className="text-2xl font-serif">Send a Message</CardTitle>
                   <CardDescription>
-                    Fill out the form and I'll get back to you as soon as possible
+                    Fill out the form and I&apos;ll get back to you as soon as possible
                   </CardDescription>
                 </CardHeader>
                 <CardContent>
@@ -182,6 +184,4 @@ const Contact = () => {
       </div>
     </div>
   );
-};
-
-export default Contact;
+}

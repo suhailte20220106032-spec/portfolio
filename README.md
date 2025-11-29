@@ -1,73 +1,144 @@
-# Welcome to your Lovable project
+# Portfolio Website - Next.js 15 with Turbopack
 
-## Project info
+A modern, responsive portfolio website built with Next.js 15, TypeScript, Tailwind CSS, and shadcn/ui.
 
-**URL**: https://lovable.dev/projects/32309233-bcfd-4edf-a561-447c370a3890
+## 🚀 Features
 
-## How can I edit this code?
+- **Next.js 15** with App Router and Turbopack for blazing-fast development
+- **TypeScript** for type safety
+- **Tailwind CSS** for styling
+- **shadcn/ui** components for beautiful, accessible UI
+- **Dark/Light/System theme** with next-themes
+- **Responsive design** optimized for all devices
+- **SEO optimized** with Next.js metadata API
+- **Static generation** for optimal performance
 
-There are several ways of editing your application.
+## 📦 Tech Stack
 
-**Use Lovable**
+- [Next.js 15](https://nextjs.org/) - React framework with Turbopack
+- [TypeScript](https://www.typescriptlang.org/) - Type safety
+- [Tailwind CSS](https://tailwindcss.com/) - Utility-first CSS
+- [shadcn/ui](https://ui.shadcn.com/) - UI components
+- [Radix UI](https://www.radix-ui.com/) - Unstyled, accessible components
+- [TanStack Query](https://tanstack.com/query) - Data fetching
+- [React Hook Form](https://react-hook-form.com/) - Form handling
+- [Zod](https://zod.dev/) - Schema validation
+- [Lucide React](https://lucide.dev/) - Icons
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/32309233-bcfd-4edf-a561-447c370a3890) and start prompting.
+## 🛠️ Getting Started
 
-Changes made via Lovable will be committed automatically to this repo.
+### Prerequisites
 
-**Use your preferred IDE**
+- Node.js 18+ and npm
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+### Installation
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
-
-Follow these steps:
-
-```sh
-# Step 1: Clone the repository using the project's Git URL.
+```bash
+# Clone the repository
 git clone <YOUR_GIT_URL>
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+# Navigate to the project directory
+cd suhail-s-ui-clone
 
-# Step 3: Install the necessary dependencies.
-npm i
+# Install dependencies
+npm install
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
+# Start the development server with Turbopack
 npm run dev
 ```
 
-**Edit a file directly in GitHub**
+The application will be available at `http://localhost:3000`
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+## 📜 Available Scripts
 
-**Use GitHub Codespaces**
+```bash
+# Development server with Turbopack (ultra-fast)
+npm run dev
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+# Build for production
+npm run build
 
-## What technologies are used for this project?
+# Start production server
+npm start
 
-This project is built with:
+# Run ESLint
+npm run lint
+```
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+## 📁 Project Structure
 
-## How can I deploy this project?
+```
+src/
+├── app/                      # Next.js app directory
+│   ├── layout.tsx           # Root layout
+│   ├── page.tsx             # Home page
+│   ├── providers.tsx        # Client-side providers
+│   ├── globals.css          # Global styles
+│   ├── about/               # About pages
+│   │   ├── layout.tsx
+│   │   ├── page.tsx
+│   │   ├── skills/
+│   │   ├── timeline/
+│   │   └── certificates/
+│   ├── portfolio/           # Portfolio page
+│   ├── blog/                # Blog page
+│   ├── contact/             # Contact page
+│   └── not-found.tsx        # 404 page
+├── components/              # React components
+│   ├── ui/                  # shadcn/ui components
+│   ├── Navigation.tsx
+│   ├── Footer.tsx
+│   └── NavLink.tsx
+├── contexts/                # React contexts
+│   └── ThemeContext.tsx
+├── hooks/                   # Custom hooks
+└── lib/                     # Utility functions
+public/                      # Static assets
+```
 
-Simply open [Lovable](https://lovable.dev/projects/32309233-bcfd-4edf-a561-447c370a3890) and click on Share -> Publish.
+## 🎨 Customization
 
-## Can I connect a custom domain to my Lovable project?
+### Theme
 
-Yes, you can!
+The website supports dark, light, and system themes. Theme switching is handled by the `ThemeContext` and uses CSS variables defined in `globals.css`.
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+### Content
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+Update the content in the page files:
+- Home: `src/app/page.tsx`
+- About: `src/app/about/page.tsx`
+- Skills: `src/app/about/skills/page.tsx`
+- Timeline: `src/app/about/timeline/page.tsx`
+- Certificates: `src/app/about/certificates/page.tsx`
+- Portfolio: `src/app/portfolio/page.tsx`
+- Blog: `src/app/blog/page.tsx`
+- Contact: `src/app/contact/page.tsx`
+
+### Styling
+
+Modify Tailwind configuration in `tailwind.config.ts` and CSS variables in `src/app/globals.css`.
+
+## 📝 Migration Notes
+
+This project was migrated from Vite to Next.js 15. See [MIGRATION_SUMMARY.md](./MIGRATION_SUMMARY.md) for detailed information about the migration process.
+
+## 🚀 Deployment
+
+### Vercel (Recommended)
+
+The easiest way to deploy is using [Vercel](https://vercel.com):
+
+```bash
+npm install -g vercel
+vercel
+```
+
+### Other Platforms
+
+- Build the app: `npm run build`
+- The output will be in the `.next` folder
+- Deploy following your platform's Node.js deployment guide
+
+## 📄 License
+
+This project is open source and available under the MIT License.

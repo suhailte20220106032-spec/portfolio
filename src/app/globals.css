@@ -208,3 +208,16 @@ All colors MUST be HSL.
     }
   }
 }
+.hero-with-overlay::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-color: rgba(7, 6, 6, 0.452);
+  z-index: 0;
+}
+
+.hero-with-overlay {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}

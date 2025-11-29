@@ -2,7 +2,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { Badge } from '@/components/ui/badge';
 import { Calendar, Clock, BookOpen } from 'lucide-react';
 
-const Blog = () => {
+export default function BlogPage() {
   const blogPosts = [
     {
       title: 'Getting Started with React Server Components',
@@ -118,6 +118,4 @@ const Blog = () => {
       </div>
     </div>
   );
-};
-
-export default Blog;
+}
