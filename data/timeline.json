@@ -1,0 +1,92 @@
+{
+  "experiences": [
+    {
+      "organization": "AUST Innovation and Design Club",
+      "logo": "/logo/idc.png",
+      "totalDuration": "3 yrs 3 mos",
+      "positions": [
+        {
+          "title": "Executive",
+          "duration": "Sep 2025 - Present",
+          "length": "3 mos",
+          "skills": ["Automation", "Communication"],
+          "description": "Leading innovation initiatives and design thinking workshops at AUST."
+        },
+        {
+          "title": "Head of Process Automation Team",
+          "duration": "Jan 2025 - Sep 2025",
+          "length": "9 mos",
+          "skills": [],
+          "description": "Led the Process Automation Team, implementing automation solutions for club operations."
+        },
+        {
+          "title": "Sub Executive",
+          "duration": "Apr 2024 - Feb 2025",
+          "length": "11 mos",
+          "skills": ["Automation", "Management"],
+          "description": "Contributed to innovation initiatives and supported design-focused events."
+        }
+      ]
+    },
+    {
+      "organization": "AATCC AUST Student Chapter",
+      "logo": "/logo/aatcc.png",
+      "totalDuration": "1 yr 11 mos",
+      "positions": [
+        {
+          "title": "Secretary",
+          "duration": "Aug 2025 - Present",
+          "length": "4 mos",
+          "skills": ["Executive Support", "Human Resources (HR)","Automation","Graphic Design","Communication","Presentations","Public Speaking","Team Leadership"],
+          "description": "Managing chapter operations, organizing events, and coordinating with AATCC international."
+        },
+        {
+          "title": "Automation in-Charge",
+          "duration": "Jan 2024 - Sep 2025",
+          "length": "1 yr 9 mos",
+          "skills": ["Automation", "Communication"],
+          "description": "Implemented automation systems for chapter management and event coordination."
+        }
+      ]
+    },
+    {
+      "organization": "LEAD Academy",
+      "logo": "/logo/leadLogo.png",
+      "totalDuration": "7 mos",
+      "positions": [
+        {
+          "title": "Contributing Intern",
+          "duration": "Dec 2023 - Jun 2024",
+          "length": "7 mos",
+          "location": "Remote",
+          "skills": ["Affiliate Marketing", "Sales Promotion","Promotional Marketing",""],
+          "description": "Contributed to marketing initiatives and promotional campaigns for educational content."
+        }
+      ]
+    },
+    {
+      "organization": "Youth School for Social Entrepreneurs (YSSE)",
+      "logo": "/logo/ysse.jpg",
+      "totalDuration": "6 mos",
+      "positions": [
+        {
+          "title": "Intern of Communication",
+          "duration": "Dec 2023 - May 2024 ",
+          "length": "6 mos",
+          "location": "Remote",
+          "skills": ["Communication", "Networking","Micro Management", "Public Speaking", "Presentations"],
+          "description": "Built networking and building communication with industrial leader"
+        }
+      ]
+    }
+  ],
+  "education": [
+    {
+      "institution": "Ahsanullah University of Science and Technology",
+      "logo": "/logo/aust.svg",
+      "degree": "Bachelor of Science - BS, Textile Engineering",
+      "duration": "2021 - 2026",
+      "description": "Specializing in sustainable textiles, automation, and AI integration in textile engineering."
+    }
+  ]
+}

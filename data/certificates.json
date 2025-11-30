@@ -1,0 +1,84 @@
+{
+  "certificates": [
+    {
+      "title": "Green Start-Ups",
+      "issuer": "Futurenation",
+      "logo": "🌱",
+      "date": "Oct 2025",
+      "credentialId": null,
+      "skills": ["Sustainability", "Entrepreneurship", "Green Technology"],
+      "credentialUrl": "https://drive.google.com/file/d/1EV2bHartS9w5GVvtcJn23HqZBQh0e1k9/view?usp=drive_link",
+      "description": "Certificate for participation in Green Start-Ups program focused on sustainable business practices."
+    },
+    {
+      "title": "Unpacking AI_Course Completion Certificate",
+      "issuer": "Deutsche Gesellschaft für Internationale Zusammenarbeit (GIZ) GmbH",
+      "logo": "🤖",
+      "date": "Sep 2025",
+      "credentialId": "078831160",
+      "skills": ["Artificial Intelligence (AI)", "Automation"],
+      "credentialUrl": "https://drive.google.com/file/d/1rK5tQPzgUJKQLHW3aAfwjmqE-6TWfQTR/view?usp=drive_link",
+      "description": "Comprehensive AI course completion certificate covering AI fundamentals and automation techniques."
+    },
+    {
+      "title": "A Resource Nexus Approach in Textile Sector",
+      "issuer": "United Nations University-FLORES",
+      "logo": "🌍",
+      "date": "Aug 2025",
+      "credentialId": null,
+      "skills": ["Sustainability", "Sustainable Development", "Textile Recycling"],
+      "credentialUrl": "https://drive.google.com/file/d/1z0moXz1wC4DyjfJ6DR086TDGtZo3EWAv/view?usp=drive_link",
+      "description": "Advanced training on resource nexus approach for sustainable textile sector development."
+    },
+    {
+      "title": "Certificate of Membership",
+      "issuer": "AATCC AUST Student Chapter",
+      "logo": "🎓",
+      "date": "Mar 2025",
+      "credentialId": "23-02-112",
+      "skills": [],
+      "credentialUrl": "https://drive.google.com/file/d/1lx7DP20b8WroxJxXIos95szu1LyPa5bw/view?usp=sharing",
+      "description": "Official membership certificate of AATCC AUST Student Chapter."
+    },
+    {
+      "title": "Introduction to video game level design and lighting",
+      "issuer": "AUST Innovation and Design Club",
+      "logo": "🎮",
+      "date": "Feb 2025",
+      "credentialId": null,
+      "skills": ["Game Design"],
+      "credentialUrl": "https://drive.google.com/file/d/1QAwAlk_m3MNMqppsUo8zJHtK0rhfE_eZ/view?usp=drive_link",
+      "description": "Workshop certificate for video game level design and lighting techniques."
+    },
+    {
+      "title": "Mastering Project work & Research Writing",
+      "issuer": "AATCC AUST Student Chapter",
+      "logo": "📝",
+      "date": "Feb 2025",
+      "credentialId": null,
+      "skills": ["Project Planning", "Research Skills"],
+      "credentialUrl": "https://drive.google.com/file/d/1CP6ghWfEW-xeAeBPiNJ6AFTaRW0gUj7l/view?usp=drive_link",
+      "description": "Workshop on mastering project work and research writing methodologies."
+    },
+    {
+      "title": "Graphic Design",
+      "issuer": "AATCC AUST Student Chapter",
+      "logo": "🎨",
+      "date": "Dec 2024",
+      "credentialId": "B10D23CM32",
+      "skills": ["Graphic Design"],
+      "credentialUrl": "#",
+      "description": "Graphic design workshop and certification program."
+    },
+    {
+      "title": "Public Speaking",
+      "issuer": "LEAD Academy",
+      "logo": "🎤",
+      "date": "Jun 2024",
+      "credentialId": "B10D23CM32",
+      "skills": ["Communication", "Team Leadership", "Social Media Management"],
+      "credentialUrl": "https://drive.google.com/file/d/1eVeXrCRK-WFrQbmevVETUmkJweggP2AF/view?usp=drive_link",
+      "description": "Public speaking and communication skills training certificate."
+    }
+  ]
+}

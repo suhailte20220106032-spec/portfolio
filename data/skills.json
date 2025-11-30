@@ -1,0 +1,101 @@
+{
+    "skillCategories": [
+        {
+            "category": "Artificial Intelligence & Machine Learning",
+            "description": "Early adopter with hands-on experience in AI applications",
+            "skills": [
+                "Machine Learning",
+                "AI Integration",
+                "Data Analysis",
+                "Automation",
+                "Python AI Libraries"
+            ]
+        },
+        {
+            "category": "Web Development",
+            "description": "Full-stack expertise with modern frameworks",
+            "skills": [
+                "React",
+                "Next.js",
+                "TypeScript",
+                "JavaScript",
+                "Tailwind CSS",
+                "Supabase",
+                "HTML5",
+                "CSS3"
+            ]
+        },
+        {
+            "category": "Programming Languages",
+            "description": "Logic understanding across multiple languages",
+            "skills": [
+                "Python",
+                "JavaScript",
+                "C",
+                "C++",
+                "C#",
+                "Django"
+            ]
+        },
+        {
+            "category": "Textile Engineering",
+            "description": "Core engineering knowledge and sustainable practices",
+            "skills": [
+                "Textile Technology",
+                "Sustainable Textiles",
+                "Quality Control",
+                "Textile Testing",
+                "Production Planning",
+                "Resource Nexus Approach"
+            ]
+        },
+        {
+            "category": "Tools & Platforms",
+            "description": "Development and productivity tools",
+            "skills": [
+                "Linux Environment",
+                "Git",
+                "VS Code",
+                "Microsoft Word",
+                "Research Writing",
+                "Project Management"
+            ]
+        },
+        {
+            "category": "Industry Knowledge",
+            "description": "Specialized domain expertise",
+            "skills": [
+                "Textile Automation",
+                "Sustainable Development",
+                "Textile Recycling",
+                "Supply Chain",
+                "Manufacturing Process"
+            ]
+        },
+        {
+            "category": "Leadership & Management",
+            "description": "Organizational and interpersonal excellence",
+            "skills": [
+                "Team Leadership",
+                "Event Management",
+                "Public Speaking",
+                "Networking",
+                "Communication",
+                "Executive Support",
+                "People Management",
+                "Sponsorship Management"
+            ]
+        },
+        {
+            "category": "Business & Marketing",
+            "description": "Commercial and promotional capabilities",
+            "skills": [
+                "Social Media Management",
+                "Affiliate Marketing",
+                "Sales Promotion",
+                "Promotional Marketing",
+                "Social Promotion"
+            ]
+        }
+    ]
+}
