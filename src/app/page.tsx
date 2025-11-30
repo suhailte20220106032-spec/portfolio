@@ -1,5 +1,4 @@
-'use client';
-
+'use client'
 import { TypeAnimation } from 'react-type-animation';
 import { Button } from '@/components/ui/button';
 import { ArrowRight } from 'lucide-react';
@@ -36,7 +35,7 @@ export default function HomePage() {
                                             alt='profile pic'
                                             width={200}
                                             height={200}
-                                            objectFit='cover'>
+                                            style={{"objectFit":"cover"}}>
                                         </Image>
                                     </div>
                                 </div>
@@ -47,16 +46,16 @@ export default function HomePage() {
                             </h1>
 
                             <div className="text-sm sm:text-sm md:text-xl sm:h-20 md:h-20 h-10 flex items-center justify-center">
-                                <span className="text-white sm:font-light lg:font-medium md:font-light">And I am passionate about </span>
+                                <span className="text-white sm:font-light lg:font-medium md:font-light">And I am </span>
                                 <TypeAnimation
                                     sequence={[
-                                        'Web Development',
+                                        'Textile Engineer',
                                         2000,
-                                        'UI/UX Design',
+                                        'Sustainable Developer',
                                         2000,
-                                        'Creative Solutions',
+                                        'Learner',
                                         2000,
-                                        'Innovation',
+                                        'AI & Tech Enthusiast',
                                         2000,
                                     ]}
                                     wrapper="span"
