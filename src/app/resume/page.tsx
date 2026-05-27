@@ -6,10 +6,6 @@ import Link from 'next/link';
 import { domToPDF } from '@/lib/domToPDF';
 
 export default function ResumePage() {
-  const handlePrint = () => {
-    window.print();
-  };
-
   const handleDownloadCV = () => {
     const el = document.getElementById('cv-content');
     if (el) {
@@ -34,14 +30,6 @@ export default function ResumePage() {
               >
                 <Download className="h-4 w-4" />
                 Download CV
-              </Button>
-              <Button
-                onClick={handlePrint}
-                variant="outline"
-                className="gap-2"
-              >
-                <Download className="h-4 w-4" />
-                Print CV
               </Button>
             </div>
           </div>
