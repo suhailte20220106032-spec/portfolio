@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
-import { DM_Sans, Crimson_Pro } from 'next/font/google';
+import Script from 'next/script';
+import { DM_Sans } from 'next/font/google';
 import './globals.css';
 import { Providers } from './providers';
 import { Navigation } from '@/components/Navigation';
@@ -8,20 +9,19 @@ import SmoothScroll from '@/components/SmoothScroll';
 import ScrollToTop from '@/components/ScrollToTop';
 import { SnowProvider } from '@/components/Snow';
 import ClickSpark from '@/components/Click';
+
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://suhail-mujtabir.me';
+
 const dmSans = DM_Sans({
   subsets: ['latin'],
   variable: '--font-sans',
   weight: ['400', '500', '600', '700'],
-});
-
-const crimsonPro = Crimson_Pro({
-  subsets: ['latin'],
-  variable: '--font-serif',
-  weight: ['400', '500', '600', '700'],
+  display: 'swap',
+  preload: true,
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://suhail-mujtabir.me'),
+  metadataBase: new URL(siteUrl),
   title: {
     default: "Suhail Mujtabir Fuad | Textile Engineering Student & AI Enthusiast",
     template: "%s | Suhail Mujtabir Fuad"
@@ -101,26 +101,33 @@ export default function RootLayout({
         <meta name="geo.placename" content="Dhaka" />
         <meta name="geo.position" content="23.8103;90.4125" />
         <meta name="ICBM" content="23.8103, 90.4125" />
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-              (function() {
-                try {
-                  var theme = localStorage.getItem('theme') || 'system';
-                  var isDark = theme === 'dark' || (theme === 'system' && window.matchMedia('(prefers-color-scheme: dark)').matches);
-                  if (isDark) {
-                    document.documentElement.classList.add('dark');
-                  } else {
-                    document.documentElement.classList.remove('dark');
-                  }
-                } catch (e) {}
-              })();
-            `,
-          }}
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <Script
+          id="theme-init"
+          strategy="beforeInteractive"
+        >
+          {`
+            (function() {
+              try {
+                var theme = localStorage.getItem('theme') || 'system';
+                var isDark = theme === 'dark' || (theme === 'system' && window.matchMedia('(prefers-color-scheme: dark)').matches);
+                if (isDark) {
+                  document.documentElement.classList.add('dark');
+                } else {
+                  document.documentElement.classList.remove('dark');
+                }
+              } catch (e) {}
+            })();
+          `}
+        </Script>
+        <Script
+          src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js"
+          strategy="beforeInteractive"
         />
       </head>
       
-      <body className={`${dmSans.variable} ${crimsonPro.variable} font-sans antialiased`}>
+      <body className={`${dmSans.variable} font-sans antialiased`}>
         <Providers>
             <ClickSpark
                 sparkSize={10}

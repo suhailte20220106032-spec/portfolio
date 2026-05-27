@@ -4,6 +4,22 @@
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+  font-family: 'Crimson Pro';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('/fonts/CrimsonPro-Regular.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Crimson Pro';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url('/fonts/CrimsonPro-Bold.ttf') format('truetype');
+}
+
 /* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
 All colors MUST be HSL.
 */
@@ -220,4 +236,80 @@ All colors MUST be HSL.
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+}
+
+/* Global Print Styles */
+@media print {
+  /* Remove browser headers and footers completely */
+  @page {
+    margin: 0;
+    padding: 0;
+    size: letter;
+  }
+
+  html {
+    margin: 0 !important;
+    padding: 0 !important;
+    height: 100%;
+  }
+
+  body {
+    margin: 0 !important;
+    padding: 0 !important;
+    background: white !important;
+    color: black !important;
+  }
+
+  /* Hide navigation and footer */
+  nav,
+  footer {
+    display: none !important;
+  }
+
+  /* Hide interactive elements */
+  button,
+  .no-print,
+  [data-no-print],
+  .print-hide {
+    display: none !important;
+  }
+
+  /* Ensure body doesn't have extra margins */
+  main {
+    margin: 0 !important;
+    padding: 0 !important;
+    width: 100%;
+  }
+
+  /* Prevent page breaks inside important sections */
+  section {
+    page-break-inside: avoid;
+  }
+
+  h2,
+  h3 {
+    page-break-after: avoid !important;
+  }
+
+  /* Adjust links for print */
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
+
+  a[href]::after {
+    content: none !important;
+  }
+
+  /* Ensure images print properly */
+  img {
+    max-width: 100%;
+    page-break-inside: avoid !important;
+  }
+}
+
+/* domToPDF capture override — skills grid only */
+.pdf-exporting .grid.grid-cols-1 {
+  gap: 0.75rem !important;
+  row-gap: 0.75rem !important;
 }

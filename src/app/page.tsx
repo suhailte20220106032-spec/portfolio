@@ -5,7 +5,9 @@ import { ArrowRight } from 'lucide-react';
 import Link from 'next/link';
 import Image from 'next/image';
 import RipplesScript from '@/components/Ripple';
-import Intro from '@/components/Intro/Intro';
+import HomeAboutSection from '@/components/home/HomeAboutSection';
+import HomeFeaturedProjects from '@/components/home/HomeFeaturedProjects';
+import HomeAcademicCTA from '@/components/home/HomeAcademicCTA';
 export default function HomePage() {
     return (
         <>
@@ -31,10 +33,13 @@ export default function HomePage() {
                                 <div className="w-[100px] h-[100px] lg:w-44 lg:h-44 rounded-full border-4 border-gray-700 dark:border-white border-primary/30 overflow-hidden shadow-2xl">
                                     <div className="w-full h-full bg-gradient-to-br from-primary to-secondary flex items-center justify-center">
                                         
-                                        <Image src="/img/fuad.png"
-                                            alt='profile pic'
+                                        <Image 
+                                            src="/img/fuad.png"
+                                            alt="Profile picture of Suhail Mujtabir"
                                             width={200}
                                             height={200}
+                                            priority
+                                            quality={85}
                                             style={{"objectFit":"cover"}}>
                                         </Image>
                                     </div>
@@ -46,16 +51,16 @@ export default function HomePage() {
                             </h1>
 
                             <div className="text-sm sm:text-sm md:text-xl sm:h-20 md:h-20 h-10 flex items-center justify-center">
-                                <span className="text-white sm:font-light lg:font-medium md:font-light">And I am </span>
+                                <span className="text-white sm:font-light lg:font-medium md:font-light">And I am a</span>
                                 <TypeAnimation
                                     sequence={[
                                         'Textile Engineer',
                                         2000,
-                                        'Sustainable Developer',
+                                        'Hardware-Software Integrator',
                                         2000,
-                                        'Learner',
+                                        'Systems Architect',
                                         2000,
-                                        'AI & Tech Enthusiast',
+                                        'AI & Research Enthusiast',
                                         2000,
                                     ]}
                                     wrapper="span"
@@ -71,8 +76,8 @@ export default function HomePage() {
                                     size="lg"
                                     className="transition hover:scale-110 bg-primary dark:hover:text-primary hover:bg-primary/10 text-primary-foreground font-medium rounded-2xl"
                                 >
-                                    <Link href="/portfolio">
-                                        View My Work
+                                    <Link href="/resume">
+                                        View Academic CV
                                         <ArrowRight className="ml-2 h-5 w-5" />
                                     </Link>
                                 </Button>
@@ -82,14 +87,23 @@ export default function HomePage() {
                                     variant="outline"
                                     className="transition hover:scale-110 rounded-2xl dark:bg-primary-foreground/20 dark:text-white text-gray-600 hover:text-gray-100 dark:hover:bg-primary/60 dark:hover:text-primary-foreground hover:bg-primary-foreground/10"
                                 >
-                                    <Link href="/contact">
-                                        Get In Touch
+                                    <Link href="/portfolio">
+                                        View My Work
                                     </Link>
                                 </Button>
                             </div>
                         </div>
                     </div>
                 </section>
+
+                {/* About Section */}
+                <HomeAboutSection />
+
+                {/* Featured Projects Section */}
+                <HomeFeaturedProjects />
+
+                {/* Academic CTA Section */}
+                <HomeAcademicCTA />
             </main>
         </>
     );
