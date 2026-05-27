@@ -155,20 +155,29 @@ export function SnowProvider({ children }: SnowProviderProps) {
 
   // Initialize from localStorage on mount
   useEffect(() => {
-    const stored = localStorage.getItem(SNOW_STORAGE_KEY);
-    if (stored !== null) {
-      setShowSnowState(stored === 'true');
-    } else {
-      // Default to true if no preference stored
+    try {
+      const stored = localStorage.getItem(SNOW_STORAGE_KEY);
+      if (stored !== null) {
+        setShowSnowState(stored === 'true');
+      } else {
+        // Default to true if no preference stored
+        setShowSnowState(true);
+        localStorage.setItem(SNOW_STORAGE_KEY, 'true');
+      }
+    } catch (error) {
+      console.warn('localStorage unavailable:', error);
       setShowSnowState(true);
-      localStorage.setItem(SNOW_STORAGE_KEY, 'true');
     }
     setMounted(true);
   }, []);
 
   const setShowSnow = (show: boolean) => {
     setShowSnowState(show);
-    localStorage.setItem(SNOW_STORAGE_KEY, String(show));
+    try {
+      localStorage.setItem(SNOW_STORAGE_KEY, String(show));
+    } catch (error) {
+      console.warn('localStorage unavailable:', error);
+    }
   };
 
   // Don't render until mounted to avoid hydration mismatch

@@ -3,8 +3,33 @@ import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import timelineData from 'data/timeline.json';
 import Image from 'next/image';
+
+interface TimelinePosition {
+  title: string;
+  duration: string;
+  length: string;
+  location?: string;
+  skills: string[];
+  description: string;
+}
+
+interface TimelineExperience {
+  organization: string;
+  logo: string;
+  totalDuration: string;
+  positions: TimelinePosition[];
+}
+
+interface TimelineEducation {
+  institution: string;
+  logo: string;
+  degree: string;
+  duration: string;
+  description: string;
+}
+
 export default function TimelinePage() {
-  const { experiences, education } = timelineData;
+  const { experiences, education } = timelineData as { experiences: TimelineExperience[]; education: TimelineEducation[] };
 
   return (
     <div>

@@ -3,7 +3,7 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence, Variants } from 'framer-motion'; // Import Variants type
 import { NavLink } from './NavLink';
-import { Moon, Sun, Monitor, Menu, X } from 'lucide-react';
+import { Moon, Sun, Menu, X } from 'lucide-react';
 import { useTheme } from '@/contexts/ThemeContext';
 import { Button } from './ui/button';
 import Image from 'next/image';

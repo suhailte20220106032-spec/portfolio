@@ -1,5 +1,5 @@
 "use client"
-import React, { useRef, useEffect, useCallback, useContext } from 'react';
+import React, { useRef, useEffect, useCallback } from 'react';
 import { useTheme } from '@/contexts/ThemeContext'; // Adjust import path as needed
 
 interface ClickSparkProps {
@@ -35,11 +35,11 @@ const ClickSpark: React.FC<ClickSparkProps> = ({
   const startTimeRef = useRef<number | null>(null);
   const { isDark } = useTheme(); // Use your theme context
 
-  // Determine spark color based on theme
-  const getSparkColor = () => {
+  // Determine spark color based on theme - memoized with useCallback
+  const getSparkColor = useCallback(() => {
     if (sparkColor) return sparkColor; // Use prop if provided
     return isDark ? '#ffffff' : '#000000'; // Black for light, white for dark
-  };
+  }, [sparkColor, isDark]);
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -139,7 +139,7 @@ const ClickSpark: React.FC<ClickSparkProps> = ({
     return () => {
       cancelAnimationFrame(animationId);
     };
-  }, [sparkColor, sparkSize, sparkRadius, sparkCount, duration, easeFunc, extraScale, isDark]); // Add isDark to dependencies
+  }, [sparkColor, sparkSize, sparkRadius, sparkCount, duration, easeFunc, extraScale, isDark, getSparkColor]);
 
   const handleClick = (e: React.MouseEvent<HTMLDivElement>): void => {
     const canvas = canvasRef.current;

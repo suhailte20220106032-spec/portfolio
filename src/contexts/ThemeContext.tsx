@@ -21,11 +21,17 @@ export const ThemeProvider = ({ children }: { children: ReactNode }) => {
   // Initialize theme from localStorage or system preference on mount
   useEffect(() => {
     setMounted(true);
-    const stored = localStorage.getItem('theme') as Theme | null;
-    if (stored && (stored === 'light' || stored === 'dark')) {
-      setTheme(stored);
-    } else {
-      // Use system preference if no stored theme
+    try {
+      const stored = localStorage.getItem('theme') as Theme | null;
+      if (stored && (stored === 'light' || stored === 'dark')) {
+        setTheme(stored);
+      } else {
+        // Use system preference if no stored theme
+        const systemTheme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+        setTheme(systemTheme);
+      }
+    } catch (error) {
+      console.warn('localStorage unavailable:', error);
       const systemTheme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
       setTheme(systemTheme);
     }
@@ -38,7 +44,11 @@ export const ThemeProvider = ({ children }: { children: ReactNode }) => {
     root.classList.remove('light', 'dark');
     root.classList.add(theme);
     setEffectiveTheme(theme);
-    localStorage.setItem('theme', theme);
+    try {
+      localStorage.setItem('theme', theme);
+    } catch (error) {
+      console.warn('localStorage unavailable:', error);
+    }
   }, [theme, mounted]);
 
   return (

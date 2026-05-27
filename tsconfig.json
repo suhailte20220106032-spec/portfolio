@@ -10,16 +10,16 @@
     "isolatedModules": true,
     "noEmit": true,
     "jsx": "preserve",
-    "strict": false,
-    "noUnusedLocals": false,
-    "noUnusedParameters": false,
+    "strict": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true,
     "allowJs": true,
     "incremental": true,
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
-    "noImplicitAny": false,
-    "strictNullChecks": false,
+    "noImplicitAny": true,
+    "strictNullChecks": true,
     "plugins": [
       {
         "name": "next"
