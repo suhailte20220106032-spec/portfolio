@@ -34,6 +34,7 @@ const PAGE_CONTENT_H = A4.h - MARGIN.top - MARGIN.bottom;
 const FONT_SCALE = 0.94;
 const HEADING_PAGE_BUFFER = 5;
 const SECTION_GAP = 4;
+const EXPORT_VIEWPORT_WIDTH = 1280;
 const fontDataCache = new Map();
 const embeddedFontFamilies = new Map();
 const emojiImageCache = new Map();
@@ -97,7 +98,8 @@ function prepareOffscreenClone(rootEl) {
     'position:fixed',
     'top:0',
     'left:0',
-    'width:' + rootEl.offsetWidth + 'px',
+    'width:' + EXPORT_VIEWPORT_WIDTH + 'px',
+    'min-width:' + EXPORT_VIEWPORT_WIDTH + 'px',
     'opacity:0',
     'pointer-events:none',
     'z-index:-9999',
@@ -109,6 +111,12 @@ function prepareOffscreenClone(rootEl) {
   clone.classList.remove('dark');
   clone.style.colorScheme = 'light';
   clone.removeAttribute('data-theme');
+
+  clone.querySelectorAll('*').forEach((el) => {
+    if (el.classList?.contains('md:grid-cols-2')) {
+      el.style.gridTemplateColumns = 'repeat(2, minmax(0, 1fr))';
+    }
+  });
 
   wrapper.appendChild(clone);
   document.body.appendChild(wrapper);
