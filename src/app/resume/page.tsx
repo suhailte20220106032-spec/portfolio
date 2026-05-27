@@ -93,7 +93,7 @@ export default function ResumePage() {
 
         {/* Professional Summary */}
         <section className="mb-6 print:mb-5">
-          <h3 className="text-xl print:text-base font-semibold text-foreground mb-3 print:mb-2 uppercase tracking-wider text-sm">
+          <h3 className="text-xl print:text-base font-semibold text-foreground mb-3 print:mb-2 uppercase tracking-wider">
             Professional Summary
           </h3>
           <p className="text-muted-foreground leading-relaxed print:text-sm print:leading-normal">
@@ -103,7 +103,7 @@ export default function ResumePage() {
 
         {/* Education */}
         <section className="mb-6 print:mb-5">
-          <h3 className="text-xl print:text-base font-semibold text-foreground mb-3 print:mb-2 uppercase tracking-wider text-sm">
+          <h3 className="text-xl print:text-base font-semibold text-foreground mb-3 print:mb-2 uppercase tracking-wider">
             Education
           </h3>
           <div className="space-y-4 print:space-y-3">
@@ -141,7 +141,7 @@ export default function ResumePage() {
 
         {/* Technical Skills */}
         <section className="mb-6 print:mb-5">
-          <h3 className="text-xl print:text-base font-semibold text-foreground mb-3 print:mb-2 uppercase tracking-wider text-sm">
+          <h3 className="text-xl print:text-base font-semibold text-foreground mb-3 print:mb-2 uppercase tracking-wider">
             Technical Skills
           </h3>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 print:gap-3 print:grid-cols-2">
@@ -191,7 +191,7 @@ export default function ResumePage() {
 
         {/* Featured Projects */}
         <section className="mb-6 print:mb-5">
-          <h3 className="text-xl print:text-base font-semibold text-foreground mb-3 print:mb-2 uppercase tracking-wider text-sm">
+          <h3 className="text-xl print:text-base font-semibold text-foreground mb-3 print:mb-2 uppercase tracking-wider">
             Featured Projects
           </h3>
           <div className="space-y-5 print:space-y-4">
@@ -243,7 +243,7 @@ export default function ResumePage() {
 
         {/* Leadership & Academic Engagement */}
         <section className="mb-6 print:mb-5">
-          <h3 className="text-xl print:text-base font-semibold text-foreground mb-3 print:mb-2 uppercase tracking-wider text-sm">
+          <h3 className="text-xl print:text-base font-semibold text-foreground mb-3 print:mb-2 uppercase tracking-wider">
             Leadership & Academic Engagement
           </h3>
           <div className="space-y-4 print:space-y-3">
@@ -275,7 +275,7 @@ export default function ResumePage() {
 
         {/* Internships */}
         <section className="mb-6 print:mb-5">
-          <h3 className="text-xl print:text-base font-semibold text-foreground mb-3 print:mb-2 uppercase tracking-wider text-sm">
+          <h3 className="text-xl print:text-base font-semibold text-foreground mb-3 print:mb-2 uppercase tracking-wider">
             Internship Experience
           </h3>
           <div className="space-y-4 print:space-y-3">
@@ -299,7 +299,7 @@ export default function ResumePage() {
 
         {/* Research Interests */}
         <section className="mb-8 print:mb-4 pb-8 print:pb-0 border-b border-border/50 print:border-b-0">
-          <h3 className="text-xl print:text-base font-semibold text-foreground mb-3 print:mb-2 uppercase tracking-wider text-sm">
+          <h3 className="text-xl print:text-base font-semibold text-foreground mb-3 print:mb-2 uppercase tracking-wider">
             Research Interests & Areas of Focus
           </h3>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 print:gap-3 print:grid-cols-2">
