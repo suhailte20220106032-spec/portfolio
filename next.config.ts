@@ -17,12 +17,6 @@ const nextConfig: NextConfig = {
     // your project has TypeScript errors.
     ignoreBuildErrors: false,
   },
-  // Configure ESLint
-  eslint: {
-    // Warning: This allows production builds to successfully complete even if
-    // your project has ESLint errors.
-    ignoreDuringBuilds: false,
-  },
   // Cache configuration
   onDemandEntries: {
     maxInactiveAge: 60 * 60 * 1000,
